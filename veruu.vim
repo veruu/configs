@@ -42,6 +42,8 @@ hi VertSplit		guifg=#232729	guibg=gray65
 "hi StatusLine
 "hi StatusLineNC
 hi MatchParen		guibg=#E00F80
+hi Pmenu		guifg=yellow	guibg=#232729
+hi PmenuSel		guifg=#BB0000	guibg=#232729	cterm=bold
 "hi Visual
 "hi WarningMsg
 
