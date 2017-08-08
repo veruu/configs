@@ -72,4 +72,4 @@ hi StorageClass		guifg=#FF6347
 hi Structure		guifg=#DE3000	cterm=bold
 hi Special		guifg=gold2
 hi SpecialChar		guifg=gold2	cterm=bold
-hi Todo			guifg=#232729	guibg=#FFFF00
+hi Todo			guifg=#FF0000	guibg=#FFFF00	cterm=bold
