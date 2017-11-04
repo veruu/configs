@@ -6,6 +6,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -40,6 +44,7 @@ set wrapscan
 set shortmess+=c
 let g:sh_fold_enabled=1
 colo veruu
+autocmd BufNewFile,BufRead *.txt set syntax=conf
 
 "normal code:
 "set tabstop=4
@@ -47,10 +52,10 @@ colo veruu
 "set expandtab
 
 "8spaces-tab code:
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
-set noexpandtab
+"set tabstop=8
+"set softtabstop=8
+"set shiftwidth=8
+"set noexpandtab
 
 " YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
@@ -86,3 +91,6 @@ let g:pymode_lint_on_write = 1
 let g:pymode_folding = 1
 let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 0
+
+" vim-airline
+let g:airline_theme = 'deus'
