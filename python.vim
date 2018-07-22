@@ -1,3 +1,4 @@
+" pymode syntax configuration
 " vim: ft=vim:fdm=marker
 
 " Enable pymode syntax for python files

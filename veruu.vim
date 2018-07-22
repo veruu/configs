@@ -1,3 +1,5 @@
+" vim color highlighting scheme (/usr/share/vim/vim<version>/colors/)
+
 let g:colors_name = "mytheme"
 
 set termguicolors
