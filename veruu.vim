@@ -15,7 +15,8 @@ hi CursorLine		guibg=#232729	cterm=none
 hi CursorLineNr		guifg=gray65
 hi Folded		guifg=#232729	guibg=gray40
 hi Search		guifg=#232729	guibg=#FFFF00
-hi SpellBad		guifg=#93D300	guibg=#FF0000	cterm=bold,underline
+hi SpellBad		guifg=#93D300	cterm=bold,underline
+hi clear SpellCap
 
 hi DiffAdded		guifg=SpringGreen3
 hi DiffFile		guifg=#BC49A9	cterm=bold
@@ -25,8 +26,8 @@ hi DiffRemoved		guifg=red2
 hi DiffLine		guifg=gray50
 hi Title		guifg=firebrick2	cterm=bold
 
-hi ErrorMsg		guifg=#93D300	guibg=#FF0000	cterm=bold,underline
-hi Error		guifg=#93D300	guibg=#FF0000	cterm=bold,underline
+hi ErrorMsg		guifg=#93D300	cterm=bold,underline
+hi Error		guifg=#93D300	cterm=bold,underline
 "hi SpecialKey
 "hi NonText
 "hi Directory
