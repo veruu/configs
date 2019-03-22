@@ -829,6 +829,7 @@ customs => "\x{1F6C3}",
 baggage_claim => "\x{1F6C4}",
 left_luggage => "\x{1F6C5}",
 facepalm => "\x{1F926}",
+thinking => "\x{1F914}",
 middle_finger => "\x{1F595}"
 );
 
