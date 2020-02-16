@@ -12,7 +12,7 @@ hi Normal		guifg=gray89
 hi CursorColumn		guibg=gray27
 hi LineNr		guifg=gray27
 hi CursorLine		guibg=#232729	cterm=none
-hi CursorLineNr		guifg=gray65
+hi CursorLineNr		guifg=gray65	cterm=none
 hi Folded		guifg=#232729	guibg=gray40
 hi Search		guifg=#232729	guibg=#FFFF00
 hi SpellBad		guifg=#93D300	cterm=bold,underline
