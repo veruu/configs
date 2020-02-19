@@ -47,9 +47,9 @@ colo veruu
 autocmd BufNewFile,BufRead *.txt set syntax=conf
 
 "normal code:
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 "8spaces-tab code:
 "set tabstop=8
@@ -75,6 +75,7 @@ let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_go_checkers = ['go', 'gofmt']
 
 " python-mode
+let g:pymode_python = 'python3'
 let g:pymode_options_max_line_length = 79
 let g:pymode_indent = 0
 let g:pymode_syntax = 1
@@ -85,7 +86,6 @@ let g:pymode_lint = 1
 let g:pymode_lint_message = 1
 let g:pymode_lint_unmodified = 1
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pylint']
-let g:pymode_lint_options_pyflakes = { 'builtins': ['_', 'FileNotFoundError'] }
 let g:pymode_lint_on_fly = 1
 let g:pymode_lint_on_write = 1
 let g:pymode_folding = 1
