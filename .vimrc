@@ -3,13 +3,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'klen/python-mode'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'dense-analysis/ale'
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -43,7 +41,8 @@ set cursorline
 set wrapscan
 set shortmess+=c
 let g:sh_fold_enabled=1
-colo veruu
+" colo veruu  " doesn't work in mac terminal *sad noises*
+colo slate
 autocmd BufNewFile,BufRead *.txt set syntax=conf
 
 "normal code:
@@ -57,40 +56,38 @@ set expandtab
 "set shiftwidth=8
 "set noexpandtab
 
-" YouCompleteMe
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '/home/veruu/.ycm_global.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_register_as_syntastic_checker = 0
-"let g:ycm_python_binary_path = '/usr/bin/python3'
-
-" syntastic
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_ignore_files = ['\.py$']
-let g:syntastic_sh_checkers = ['shellcheck']
-let g:syntastic_go_checkers = ['go', 'gofmt']
-
-" python-mode
-let g:pymode_python = 'python3'
-let g:pymode_options_max_line_length = 79
-let g:pymode_indent = 0
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-"let g:pymode_syntax_print_as_function = 1  "PY3
-let g:pymode_rope = 0
-let g:pymode_lint = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_unmodified = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pylint']
-let g:pymode_lint_on_fly = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_folding = 1
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 0
-
 " vim-airline
 let g:airline_theme = 'deus'
+
+" ale
+"
+" brew install:
+" - shellcheck
+" - yamllint
+" - flake8
+" - pylint
+" - mypy
+" - bash-language-server
+" - python-lsp-server
+"
+" git clone https://gitlab.com/cki-project/cki-tools
+" cd cki-tools
+" pip3 install --user -e .
+" add /Users/veruu/Library/Python/<version>/bin to $PATH
+" 
+set runtimepath+=/Users/veruu/git/cki-tools/vim/
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+let g:ale_virtualtext_cursor = 0
+let g:ale_set_loclist = 1
+let g:ale_list_window_size = 6
+let g:ale_open_list = 1
+let g:ale_linters={'yaml': ['yamllint', 'shellcheck'], 'python': ['flake8', 'mypy', 'pylint', 'pylsp']}
+let g:ale_yaml_yamllint_options = "-d '{extends: default, rules: {line-length: disable}}'"
+let g:ale_python_pylsp_executable = '/opt/homebrew/bin/pylsp'
+" SC1090: Not following sourced files (can't follow non-constant source)
+" SC1091: Not following sourced files (file not found / no permissions / etc)
+" SC3044: In POSIX sh, <thing> is undefined
+let g:ale_yaml_shellcheck_options = '--exclude=SC1090,SC1091,SC3044 --no-cache'
+let g:ale_sh_shellcheck_options = '--exclude=SC1090,SC1091,SC3044'
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
