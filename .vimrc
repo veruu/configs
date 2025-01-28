@@ -74,7 +74,7 @@ let g:airline_theme = 'deus'
 " cd cki-tools
 " pip3 install --user -e .
 " add /Users/veruu/Library/Python/<version>/bin to $PATH
-" 
+"
 set runtimepath+=/Users/veruu/git/cki-tools/vim/
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
@@ -89,5 +89,18 @@ let g:ale_python_pylsp_executable = '/opt/homebrew/bin/pylsp'
 " SC1091: Not following sourced files (file not found / no permissions / etc)
 " SC3044: In POSIX sh, <thing> is undefined
 let g:ale_yaml_shellcheck_options = '--exclude=SC1090,SC1091,SC3044 --no-cache'
+let g:ale_sh_shell_default_shell = 'bash'
 let g:ale_sh_shellcheck_options = '--exclude=SC1090,SC1091,SC3044'
+
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" local autocomplete on the fly
+autocmd InsertCharPre * call AutopcompleteOnTheFly()
+fun! AutopcompleteOnTheFly()
+  if  v:char =~ '\w'
+    \ && getline('.')[col('.') - 3] =~ '\w'
+    \ && getline('.')[col('.') - 2] =~ '\w'
+    \ && getline('.')[col('.') - 1] !~ '\w'
+    call feedkeys("\<C-n>\<C-p>", 'n')
+  endif
+endfun
